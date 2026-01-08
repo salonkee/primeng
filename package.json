@@ -1,6 +1,6 @@
 {
     "name": "@primeng/monorepo",
-    "version": "20.4.0",
+    "version": "20.4.3",
     "author": "PrimeTek Informatics",
     "homepage": "https://primeng.org/",
     "repository": {
@@ -16,6 +16,7 @@
         "clean": "npx rimraf --glob **/node_modules **/dist **/.angular ./pnpm-lock.yaml",
         "init": "pnpm install && husky",
         "link": "pnpm --filter './packages/*' dev:link",
+        "release:salonkee": "pnpm run build:lib && node packages/primeng/scripts/rename-package.js && pnpm recursive publish --filter './packages/primeng' --no-git-checks --report-summary",
         "release": "pnpm run build && pnpm recursive publish --filter './packages/*' --no-git-checks --report-summary",
         "release:beta": "pnpm run build && pnpm recursive publish --filter './packages/*' --no-git-checks --report-summary --tag beta",
         "release:rc": "pnpm run build && pnpm recursive publish --filter './packages/*' --no-git-checks --report-summary --tag rc",
